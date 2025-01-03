@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/12750b85-cfd2-401e-a352-22ba73bcbe4e)
+
 <h1>Solara - cheat for ROBLOX clients</h1>
 <h3>(RUS)
 Пожалуйста, не используйте эту программу для совершения плохих для других игроков действий.
