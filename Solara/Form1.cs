@@ -96,12 +96,10 @@ namespace Solara
             }
         }
 
-        bool hide = false;
-
         private void sHOWToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            hide = !hide;
-            if (hide)
+            Program.hide = !Program.hide;
+            if (Program.hide)
             {
                 this.Hide();
             }
@@ -143,6 +141,22 @@ namespace Solara
                 {
                     e.Cancel = true;
                 }
+            }
+        }
+
+        private void dEBUGCONSOLEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Form3().Show();
+        }
+
+        Form contextForm;
+
+        private void notifyIcon1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                contextForm = new Form4(this);
+                contextForm.Show();
             }
         }
     }

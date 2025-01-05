@@ -37,18 +37,20 @@ namespace Solara
             this.statusLbl = new System.Windows.Forms.Label();
             this.killBtn = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.sHOWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dEBUGCONSOLEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.aBOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scriptsBtn = new System.Windows.Forms.Button();
             this.sAVESCRIPTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.oPENToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new ZBobb.AlphaBlendTextBox();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.sHOWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.aBOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1.SuspendLayout();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // injectBtn
@@ -141,6 +143,62 @@ namespace Solara
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "SOLARA by VladOS63K";
             this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDown);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.BackColor = System.Drawing.Color.Black;
+            this.contextMenuStrip2.Font = new System.Drawing.Font("Unispace", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sHOWToolStripMenuItem,
+            this.dEBUGCONSOLEToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.aBOUTToolStripMenuItem,
+            this.eXITToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(166, 98);
+            // 
+            // sHOWToolStripMenuItem
+            // 
+            this.sHOWToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.sHOWToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
+            this.sHOWToolStripMenuItem.Name = "sHOWToolStripMenuItem";
+            this.sHOWToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.sHOWToolStripMenuItem.Text = "SHOW/HIDE";
+            this.sHOWToolStripMenuItem.Click += new System.EventHandler(this.sHOWToolStripMenuItem_Click);
+            // 
+            // dEBUGCONSOLEToolStripMenuItem
+            // 
+            this.dEBUGCONSOLEToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
+            this.dEBUGCONSOLEToolStripMenuItem.Name = "dEBUGCONSOLEToolStripMenuItem";
+            this.dEBUGCONSOLEToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.dEBUGCONSOLEToolStripMenuItem.Text = "DEBUG CONSOLE";
+            this.dEBUGCONSOLEToolStripMenuItem.Click += new System.EventHandler(this.dEBUGCONSOLEToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.BackColor = System.Drawing.Color.Black;
+            this.toolStripSeparator1.ForeColor = System.Drawing.Color.Red;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(162, 6);
+            // 
+            // aBOUTToolStripMenuItem
+            // 
+            this.aBOUTToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.aBOUTToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
+            this.aBOUTToolStripMenuItem.Name = "aBOUTToolStripMenuItem";
+            this.aBOUTToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.aBOUTToolStripMenuItem.Text = "ABOUT";
+            this.aBOUTToolStripMenuItem.Click += new System.EventHandler(this.aBOUTToolStripMenuItem_Click);
+            // 
+            // eXITToolStripMenuItem
+            // 
+            this.eXITToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.eXITToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
+            this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
+            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.eXITToolStripMenuItem.Text = "EXIT";
+            this.eXITToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
             // 
             // scriptsBtn
             // 
@@ -199,58 +257,13 @@ namespace Solara
             this.textBox1.Size = new System.Drawing.Size(828, 454);
             this.textBox1.TabIndex = 9;
             // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.BackColor = System.Drawing.Color.Black;
-            this.contextMenuStrip2.Font = new System.Drawing.Font("Unispace", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sHOWToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.aBOUTToolStripMenuItem,
-            this.eXITToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 98);
-            // 
-            // sHOWToolStripMenuItem
-            // 
-            this.sHOWToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.sHOWToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
-            this.sHOWToolStripMenuItem.Name = "sHOWToolStripMenuItem";
-            this.sHOWToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sHOWToolStripMenuItem.Text = "SHOW/HIDE";
-            this.sHOWToolStripMenuItem.Click += new System.EventHandler(this.sHOWToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.BackColor = System.Drawing.Color.Black;
-            this.toolStripSeparator1.ForeColor = System.Drawing.Color.Red;
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
-            // 
-            // aBOUTToolStripMenuItem
-            // 
-            this.aBOUTToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.aBOUTToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
-            this.aBOUTToolStripMenuItem.Name = "aBOUTToolStripMenuItem";
-            this.aBOUTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aBOUTToolStripMenuItem.Text = "ABOUT";
-            this.aBOUTToolStripMenuItem.Click += new System.EventHandler(this.aBOUTToolStripMenuItem_Click);
-            // 
-            // eXITToolStripMenuItem
-            // 
-            this.eXITToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.eXITToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
-            this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
-            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.eXITToolStripMenuItem.Text = "EXIT";
-            this.eXITToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::Solara.Properties.Resources.background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(855, 519);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.scriptsBtn);
@@ -269,8 +282,8 @@ namespace Solara
             this.Text = "SOLARA by VladOS63K";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,6 +306,8 @@ namespace Solara
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem aBOUTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eXITToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dEBUGCONSOLEToolStripMenuItem;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
