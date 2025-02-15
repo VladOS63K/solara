@@ -47,8 +47,11 @@ namespace Solara
             this.sAVESCRIPTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.oPENToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.oPENSCRIPTSWINDOWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new ZBobb.AlphaBlendTextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.settingsBtn = new System.Windows.Forms.Button();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -61,13 +64,14 @@ namespace Solara
             this.injectBtn.ForeColor = System.Drawing.Color.Firebrick;
             this.injectBtn.Image = global::Solara.Properties.Resources.inject;
             this.injectBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.injectBtn.Location = new System.Drawing.Point(617, 472);
+            this.injectBtn.Location = new System.Drawing.Point(842, 567);
             this.injectBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.injectBtn.Name = "injectBtn";
             this.injectBtn.Size = new System.Drawing.Size(109, 32);
             this.injectBtn.TabIndex = 2;
             this.injectBtn.Text = "INJECT";
             this.injectBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.injectBtn, "Inject ROBLOX.");
             this.injectBtn.UseVisualStyleBackColor = false;
             this.injectBtn.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -79,13 +83,14 @@ namespace Solara
             this.clearBtn.ForeColor = System.Drawing.Color.Firebrick;
             this.clearBtn.Image = global::Solara.Properties.Resources.clear;
             this.clearBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clearBtn.Location = new System.Drawing.Point(383, 472);
+            this.clearBtn.Location = new System.Drawing.Point(608, 567);
             this.clearBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(109, 32);
             this.clearBtn.TabIndex = 3;
             this.clearBtn.Text = "CLEAR";
             this.clearBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.clearBtn, "Clear CODE.");
             this.clearBtn.UseVisualStyleBackColor = false;
             this.clearBtn.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -97,13 +102,14 @@ namespace Solara
             this.executeBtn.ForeColor = System.Drawing.Color.Firebrick;
             this.executeBtn.Image = global::Solara.Properties.Resources.execute;
             this.executeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.executeBtn.Location = new System.Drawing.Point(734, 472);
+            this.executeBtn.Location = new System.Drawing.Point(959, 567);
             this.executeBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.executeBtn.Name = "executeBtn";
             this.executeBtn.Size = new System.Drawing.Size(109, 32);
             this.executeBtn.TabIndex = 4;
             this.executeBtn.Text = "EXECUTE";
             this.executeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.executeBtn, "Execute CODE.");
             this.executeBtn.UseVisualStyleBackColor = false;
             this.executeBtn.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -112,12 +118,13 @@ namespace Solara
             this.statusLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.statusLbl.BackColor = System.Drawing.Color.Transparent;
-            this.statusLbl.Location = new System.Drawing.Point(12, 473);
+            this.statusLbl.Location = new System.Drawing.Point(12, 568);
             this.statusLbl.Name = "statusLbl";
-            this.statusLbl.Size = new System.Drawing.Size(247, 32);
+            this.statusLbl.Size = new System.Drawing.Size(355, 32);
             this.statusLbl.TabIndex = 5;
             this.statusLbl.Text = "Status: NOT INJECTED";
             this.statusLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.statusLbl, "Inject STATUS.");
             // 
             // killBtn
             // 
@@ -127,13 +134,14 @@ namespace Solara
             this.killBtn.ForeColor = System.Drawing.Color.Firebrick;
             this.killBtn.Image = global::Solara.Properties.Resources.kill;
             this.killBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.killBtn.Location = new System.Drawing.Point(500, 472);
+            this.killBtn.Location = new System.Drawing.Point(725, 567);
             this.killBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.killBtn.Name = "killBtn";
             this.killBtn.Size = new System.Drawing.Size(109, 32);
             this.killBtn.TabIndex = 6;
             this.killBtn.Text = "KILL";
             this.killBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.killBtn, "Kill ROBLOX.");
             this.killBtn.UseVisualStyleBackColor = false;
             this.killBtn.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -208,13 +216,14 @@ namespace Solara
             this.scriptsBtn.ForeColor = System.Drawing.Color.Firebrick;
             this.scriptsBtn.Image = global::Solara.Properties.Resources.scripts;
             this.scriptsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.scriptsBtn.Location = new System.Drawing.Point(266, 472);
+            this.scriptsBtn.Location = new System.Drawing.Point(491, 567);
             this.scriptsBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.scriptsBtn.Name = "scriptsBtn";
             this.scriptsBtn.Size = new System.Drawing.Size(109, 32);
             this.scriptsBtn.TabIndex = 7;
             this.scriptsBtn.Text = "SCRIPTS";
             this.scriptsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.scriptsBtn, "Scripts.");
             this.scriptsBtn.UseVisualStyleBackColor = false;
             this.scriptsBtn.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -223,7 +232,7 @@ namespace Solara
             this.sAVESCRIPTToolStripMenuItem.Font = new System.Drawing.Font("Unispace", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sAVESCRIPTToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
             this.sAVESCRIPTToolStripMenuItem.Name = "sAVESCRIPTToolStripMenuItem";
-            this.sAVESCRIPTToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.sAVESCRIPTToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.sAVESCRIPTToolStripMenuItem.Text = "SAVE SCRIPT";
             this.sAVESCRIPTToolStripMenuItem.Click += new System.EventHandler(this.sAVESCRIPTToolStripMenuItem_Click);
             // 
@@ -233,20 +242,38 @@ namespace Solara
             this.contextMenuStrip1.Font = new System.Drawing.Font("Unispace", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sAVESCRIPTToolStripMenuItem,
-            this.oPENToolStripMenuItem});
+            this.oPENToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.oPENSCRIPTSWINDOWToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(152, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(208, 98);
             // 
             // oPENToolStripMenuItem
             // 
             this.oPENToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
             this.oPENToolStripMenuItem.Name = "oPENToolStripMenuItem";
-            this.oPENToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.oPENToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.oPENToolStripMenuItem.Text = "LOAD SCRIPT";
             this.oPENToolStripMenuItem.Click += new System.EventHandler(this.oPENToolStripMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(204, 6);
+            // 
+            // oPENSCRIPTSWINDOWToolStripMenuItem
+            // 
+            this.oPENSCRIPTSWINDOWToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
+            this.oPENSCRIPTSWINDOWToolStripMenuItem.Name = "oPENSCRIPTSWINDOWToolStripMenuItem";
+            this.oPENSCRIPTSWINDOWToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.oPENSCRIPTSWINDOWToolStripMenuItem.Text = "OPEN SCRIPTS WINDOW";
+            this.oPENSCRIPTSWINDOWToolStripMenuItem.Click += new System.EventHandler(this.oPENSCRIPTSWINDOWToolStripMenuItem_Click);
+            // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.BackAlpha = 0;
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -254,8 +281,29 @@ namespace Solara
             this.textBox1.Location = new System.Drawing.Point(15, 12);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(828, 454);
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox1.Size = new System.Drawing.Size(1053, 549);
             this.textBox1.TabIndex = 9;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            // 
+            // settingsBtn
+            // 
+            this.settingsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.settingsBtn.BackColor = System.Drawing.Color.Silver;
+            this.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsBtn.ForeColor = System.Drawing.Color.Firebrick;
+            this.settingsBtn.Image = global::Solara.Properties.Resources.settings;
+            this.settingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.settingsBtn.Location = new System.Drawing.Point(374, 567);
+            this.settingsBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.settingsBtn.Name = "settingsBtn";
+            this.settingsBtn.Size = new System.Drawing.Size(109, 32);
+            this.settingsBtn.TabIndex = 10;
+            this.settingsBtn.Text = "OPTIONS";
+            this.settingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.settingsBtn, "Open OPTIONS.");
+            this.settingsBtn.UseVisualStyleBackColor = false;
+            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
             // 
             // Form1
             // 
@@ -264,7 +312,8 @@ namespace Solara
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::Solara.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(855, 519);
+            this.ClientSize = new System.Drawing.Size(1080, 614);
+            this.Controls.Add(this.settingsBtn);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.scriptsBtn);
             this.Controls.Add(this.killBtn);
@@ -308,6 +357,9 @@ namespace Solara
         private System.Windows.Forms.ToolStripMenuItem eXITToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dEBUGCONSOLEToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button settingsBtn;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem oPENSCRIPTSWINDOWToolStripMenuItem;
     }
 }
 

@@ -19,6 +19,7 @@ namespace Solara
         }
 
         int timeLeft = 0;
+        bool formContinue = false;
 
         private async void Form2_Load(object sender, EventArgs e)
         {
@@ -38,6 +39,7 @@ namespace Solara
             if (timeLeft == 20)
             {
                 timer1.Enabled = false;
+                formContinue = true;
                 button2.Text = "Continue";
                 button2.Enabled = true;
             }
@@ -51,6 +53,14 @@ namespace Solara
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!formContinue)
+            {
+                Application.Exit();
+            }
         }
     }
 }

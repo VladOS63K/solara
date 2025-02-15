@@ -9,21 +9,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace Solara
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        public Form1(string[] args)
         {
             InitializeComponent();
+            this.args = args;
+        }
+
+        string[] args;
+        string userName = Properties.Settings.Default.UserName;
+
+        public void OpenFile(string file)
+        {
+            textBox1.Text = File.ReadAllText(file);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            statusLbl.Text = "Status: WAIT FOR INJECT";
             if (ForlornApi.Api.IsRobloxOpen() && !ForlornApi.Api.IsInjected())
             {
+                statusLbl.Text = "Status: WAIT FOR INJECT";
                 ForlornApi.Api.Inject();
                 statusLbl.Text = "Status: INJECTED";
             }
@@ -35,7 +45,11 @@ namespace Solara
 
         private void button4_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "";
+            DialogResult res = MessageBox.Show("Really clear?","",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+            {
+                textBox1.Text = "";
+            }
         }
 
         private async void button5_Click(object sender, EventArgs e)
@@ -55,9 +69,27 @@ namespace Solara
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-            //notifyIcon1.Icon = SystemIcons.Information;
+            ForlornApi.Api.SetAutoInject(Properties.Settings.Default.AutoInject);
+            textBox1.WordWrap = Properties.Settings.Default.WordWrap;
+            if (Properties.Settings.Default.AutoInject)
+            {
+                statusLbl.Text = "STATUS: UNKNOWN";
+                injectBtn.Enabled = false;
+                toolTip1.SetToolTip(injectBtn, "Inject button is disabled, Because AutoInject is ON.");
+                toolTip1.SetToolTip(statusLbl, "Status is unknown, Because AutoInject is ON.");
+            }
             await Task.Delay(500);
-            new Form2().ShowDialog();
+            if (args.Length != 0)
+            {
+                if (args[0] != "-no-disclaimer")
+                {
+                    new Form2().ShowDialog();
+                }
+            }
+            else
+            {
+                new Form2().ShowDialog();
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -83,7 +115,22 @@ namespace Solara
             InputBoxResult res = InputBox.Show("Enter SCRIPT name");
             if (res.DialogResult == InputBoxDialogResult.OK)
             {
-                File.WriteAllText("scripts\\" + res.Text + ".lua", textBox1.Text);
+                if (File.Exists("scripts\\" + res.Text + ".lua"))
+                {
+                    DialogResult msg = MessageBox.Show("Overwrite LUA File?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                    if (msg == DialogResult.Yes)
+                    {
+                        File.WriteAllText("scripts\\" + res.Text + ".lua", textBox1.Text);
+                    }
+                    else
+                    {
+                        File.WriteAllText("scripts\\" + res.Text + "_copy.lua", textBox1.Text);
+                    }
+                }
+                else
+                {
+                    File.WriteAllText("scripts\\" + res.Text + ".lua", textBox1.Text);
+                }
             }
         }
 
@@ -92,7 +139,7 @@ namespace Solara
             OpenFileDialog ofd = new OpenFileDialog() { FileName = "", Filter = "LUA scripts|*.lua", InitialDirectory = Application.StartupPath + "\\scripts\\"};
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                textBox1.Text = File.ReadAllText(ofd.FileName);
+                OpenFile(ofd.FileName);
             }
         }
 
@@ -157,6 +204,39 @@ namespace Solara
             {
                 contextForm = new Form4(this);
                 contextForm.Show();
+            }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Shift && e.KeyCode == Keys.U)
+            {
+                if (Properties.Settings.Default.PasteUserName)
+                {
+                    textBox1.Paste(userName);
+                }
+            }
+        }
+
+        private void settingsBtn_Click(object sender, EventArgs e)
+        {
+            new Form5().ShowDialog();
+        }
+
+        private void oPENSCRIPTSWINDOWToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool opened = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "Form6")
+                {
+                    opened = true;
+                    f.Activate();
+                }
+            }
+            if (!opened)
+            {
+                new Form6(this).Show();
             }
         }
     }
