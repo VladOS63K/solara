@@ -10,12 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.Diagnostics;
 
 namespace Solara
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1(string[] args)
+        public MainForm(string[] args)
         {
             InitializeComponent();
             this.args = args;
@@ -24,6 +25,28 @@ namespace Solara
         string[] args;
         string userName = Properties.Settings.Default.UserName;
 
+        public async void ExecuteScript(string script)
+        {
+            if (Properties.Settings.Default.RunAfterScriptBtnClick)
+            {
+                if (VanityAPI.Api.IsInjected() && VanityAPI.Api.IsRobloxOpen())
+                {
+                    statusLbl.Text = "Status: RUNNING SCRIPT";
+                    await Task.Delay(500);
+                    VanityAPI.Api.Execute(script);
+                    statusLbl.Text = "Status: INJECTED";
+                }
+                else
+                {
+                    MessageBox.Show("ROBLOX is NOT INJECTED or ROBLOX is NOT OPENED");
+                }
+            }
+            else
+            {
+                textBox1.Text = script;
+            }
+        }
+
         public void OpenFile(string file)
         {
             textBox1.Text = File.ReadAllText(file);
@@ -31,11 +54,9 @@ namespace Solara
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (ForlornApi.Api.IsRobloxOpen() && !ForlornApi.Api.IsInjected())
+            if (VanityAPI.Api.IsRobloxOpen() && !VanityAPI.Api.IsInjected())
             {
-                statusLbl.Text = "Status: WAIT FOR INJECT";
-                ForlornApi.Api.Inject();
-                statusLbl.Text = "Status: INJECTED";
+                VanityAPI.Api.Inject();
             }
             else
             {
@@ -54,11 +75,11 @@ namespace Solara
 
         private async void button5_Click(object sender, EventArgs e)
         {
-            if (ForlornApi.Api.IsInjected() && ForlornApi.Api.IsRobloxOpen())
+            if (VanityAPI.Api.IsInjected() && VanityAPI.Api.IsRobloxOpen())
             {
                 statusLbl.Text = "Status: RUNNING SCRIPT";
                 await Task.Delay(500);
-                ForlornApi.Api.ExecuteScript(textBox1.Text);
+                VanityAPI.Api.Execute(textBox1.Text);
                 statusLbl.Text = "Status: INJECTED";
             }
             else
@@ -69,37 +90,36 @@ namespace Solara
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-            ForlornApi.Api.SetAutoInject(Properties.Settings.Default.AutoInject);
+            webView21.EnsureCoreWebView2Async();
+            VanityAPI.Api.SetAutoInject(Properties.Settings.Default.AutoInject);
             textBox1.WordWrap = Properties.Settings.Default.WordWrap;
             if (Properties.Settings.Default.AutoInject)
             {
-                statusLbl.Text = "STATUS: UNKNOWN";
                 injectBtn.Enabled = false;
                 toolTip1.SetToolTip(injectBtn, "Inject button is disabled, Because AutoInject is ON.");
-                toolTip1.SetToolTip(statusLbl, "Status is unknown, Because AutoInject is ON.");
             }
             await Task.Delay(500);
             if (args.Length != 0)
             {
                 if (args[0] != "-no-disclaimer")
                 {
-                    new Form2().ShowDialog();
+                    new WarningForm().ShowDialog();
                 }
             }
             else
             {
-                new Form2().ShowDialog();
+                new WarningForm().ShowDialog();
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (ForlornApi.Api.IsInjected() && ForlornApi.Api.IsRobloxOpen())
+            if (VanityAPI.Api.IsInjected() && VanityAPI.Api.IsRobloxOpen())
             {
                 DialogResult res = MessageBox.Show("Exit? It closes ROBLOX.", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (res == DialogResult.Yes)
                 {
-                    ForlornApi.Api.KillRoblox();
+                    VanityAPI.Api.KillRoblox();
                     Application.Exit();
                 }
             }
@@ -115,21 +135,21 @@ namespace Solara
             InputBoxResult res = InputBox.Show("Enter SCRIPT name");
             if (res.DialogResult == InputBoxDialogResult.OK)
             {
-                if (File.Exists("scripts\\" + res.Text + ".lua"))
+                if (File.Exists(Application.StartupPath + "\\scripts\\" + res.Text + ".lua"))
                 {
                     DialogResult msg = MessageBox.Show("Overwrite LUA File?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                     if (msg == DialogResult.Yes)
                     {
-                        File.WriteAllText("scripts\\" + res.Text + ".lua", textBox1.Text);
+                        File.WriteAllText(Application.StartupPath + "\\scripts\\" + res.Text + ".lua", textBox1.Text);
                     }
                     else
                     {
-                        File.WriteAllText("scripts\\" + res.Text + "_copy.lua", textBox1.Text);
+                        File.WriteAllText(Application.StartupPath + "\\scripts\\" + res.Text + "_copy.lua", textBox1.Text);
                     }
                 }
                 else
                 {
-                    File.WriteAllText("scripts\\" + res.Text + ".lua", textBox1.Text);
+                    File.WriteAllText(Application.StartupPath + "\\scripts\\" + res.Text + ".lua", textBox1.Text);
                 }
             }
         }
@@ -163,12 +183,12 @@ namespace Solara
 
         private void eXITToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (ForlornApi.Api.IsInjected() && ForlornApi.Api.IsRobloxOpen())
+            if (VanityAPI.Api.IsInjected() && VanityAPI.Api.IsRobloxOpen())
             {
                 DialogResult res = MessageBox.Show("Exit? It closes ROBLOX.", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (res == DialogResult.Yes)
                 {
-                    ForlornApi.Api.KillRoblox();
+                    VanityAPI.Api.KillRoblox();
                     Application.Exit();
                 }
             }
@@ -176,12 +196,12 @@ namespace Solara
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason != CloseReason.ApplicationExitCall && ForlornApi.Api.IsInjected())
+            if (e.CloseReason != CloseReason.ApplicationExitCall && VanityAPI.Api.IsInjected())
             {
                 DialogResult res = MessageBox.Show("Exit? It closes ROBLOX.", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (res == DialogResult.Yes)
                 {
-                    ForlornApi.Api.KillRoblox();
+                    VanityAPI.Api.KillRoblox();
                     Application.Exit();
                 }
                 else
@@ -191,18 +211,13 @@ namespace Solara
             }
         }
 
-        private void dEBUGCONSOLEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new Form3().Show();
-        }
-
         Form contextForm;
 
         private void notifyIcon1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                contextForm = new Form4(this);
+                contextForm = new TrayIconForm(this);
                 contextForm.Show();
             }
         }
@@ -213,14 +228,14 @@ namespace Solara
             {
                 if (Properties.Settings.Default.PasteUserName)
                 {
-                    textBox1.Paste(userName);
+                    textBox1.InsertText(Properties.Settings.Default.UserName);
                 }
             }
         }
 
         private void settingsBtn_Click(object sender, EventArgs e)
         {
-            new Form5().ShowDialog();
+            new SettingsForm().ShowDialog();
         }
 
         private void oPENSCRIPTSWINDOWToolStripMenuItem_Click(object sender, EventArgs e)
@@ -236,8 +251,45 @@ namespace Solara
             }
             if (!opened)
             {
-                new Form6(this).Show();
+                new ScriptsForm(this).Show();
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (VanityAPI.Api.IsInjected())
+            {
+                statusLbl.Text = "STATUS: INJECTED";
+            }
+            else
+            {
+                statusLbl.Text = "STATUS: NOT INJECTED";
+            }
+        }
+
+        private void webView21_CoreWebView2InitializationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs e)
+        {
+            if (e.IsSuccess)
+            {
+                webView21.CoreWebView2.Settings.AreDefaultScriptDialogsEnabled = false;
+                webView21.CoreWebView2.Settings.IsBuiltInErrorPageEnabled = false;
+                webView21.CoreWebView2.Settings.IsPasswordAutosaveEnabled = false;
+                //webView21.CoreWebView2.Settings.AreDevToolsEnabled = false;
+                webView21.CoreWebView2.Settings.IsZoomControlEnabled = false;
+                webView21.CoreWebView2.Settings.IsStatusBarEnabled = false;
+                //webView21.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
+                webView21.NavigateToString(Encoding.UTF8.GetString(Properties.Resources.ScriptHubButton));
+            }
+            else
+            {
+                MessageBox.Show("ScriptHub button initialization failed:\n\n" + e.InitializationException.ToString(), "WebView2 Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void webView21_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
+        {
+            Debug.WriteLine("Received " + e.WebMessageAsJson);
+            new ScriptHubForm().Show();
         }
     }
 }

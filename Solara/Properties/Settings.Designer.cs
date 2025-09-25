@@ -82,5 +82,29 @@ namespace Solara.Properties {
                 this["WordWrap"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool RunAfterScriptBtnClick {
+            get {
+                return ((bool)(this["RunAfterScriptBtnClick"]));
+            }
+            set {
+                this["RunAfterScriptBtnClick"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ButtonsJson {
+            get {
+                return ((string)(this["ButtonsJson"]));
+            }
+            set {
+                this["ButtonsJson"] = value;
+            }
+        }
     }
 }

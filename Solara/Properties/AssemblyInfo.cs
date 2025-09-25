@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
 [assembly: AssemblyTitle("SOLARA")]
-[assembly: AssemblyDescription("by VladOS63K ( Powered by Forlornicus )")]
+[assembly: AssemblyDescription("by VladOS63K ( C# + Vanity API. Powered by Forlornicus )")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("VladOS63K")]
 [assembly: AssemblyProduct("SOLARA")]
@@ -33,6 +33,6 @@ using System.Runtime.InteropServices;
 // Можно задать все значения или принять номера сборки и редакции по умолчанию 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("3.0.0.0")]
+[assembly: AssemblyFileVersion("3.0.0.0")]
 [assembly: NeutralResourcesLanguage("en-US")]

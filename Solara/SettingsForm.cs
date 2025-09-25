@@ -11,16 +11,15 @@ using System.Windows.Forms;
 
 namespace Solara
 {
-    public partial class Form5 : Form
+    public partial class SettingsForm : Form
     {
-        public Form5()
+        public SettingsForm()
         {
             InitializeComponent();
         }
 
         private void Form5_Load(object sender, EventArgs e)
         {
-            label2.Text = "API VERSION " + ForlornApi.Forlorn.ForlornVersion;
             autoInjectChkBox.Checked = Properties.Settings.Default.AutoInject;
             userNameTxtBox.Text = Properties.Settings.Default.UserName;
             pasteUserNameChkBox.Checked = Properties.Settings.Default.PasteUserName;

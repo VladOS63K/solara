@@ -1,7 +1,7 @@
 ﻿
 namespace Solara
 {
-    partial class Form2
+    partial class WarningForm
     {
         /// <summary>
         /// Required designer variable.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Solara
 {
-    public partial class Form4 : Form
+    public partial class TrayIconForm : Form
     {
-        public Form4(Form mainForm)
+        public TrayIconForm(Form mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
@@ -51,22 +51,6 @@ namespace Solara
             else
             {
                 mainForm.Show();
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            bool opened = false;
-            foreach (Form f in Application.OpenForms)
-            {
-                if (f.Name == "Form3")
-                {
-                    opened = true;
-                }
-            }
-            if (!opened)
-            {
-                new Form3().Show();
             }
         }
 

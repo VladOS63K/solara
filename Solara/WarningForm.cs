@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Solara
 {
-    public partial class Form2 : Form
+    public partial class WarningForm : Form
     {
-        public Form2()
+        public WarningForm()
         {
             InitializeComponent();
         }

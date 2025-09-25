@@ -1,7 +1,7 @@
 ﻿
 namespace Solara
 {
-    partial class Form5
+    partial class SettingsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,7 @@ namespace Solara
             this.button2 = new System.Windows.Forms.Button();
             this.autoInjectChkBox = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.wordWrapChkBox = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.scriptsUpdIntervalBox = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,8 +43,6 @@ namespace Solara
             this.userNameTxtBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.wordWrapChkBox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scriptsUpdIntervalBox)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -101,6 +100,17 @@ namespace Solara
             this.groupBox1.Size = new System.Drawing.Size(395, 243);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            // 
+            // wordWrapChkBox
+            // 
+            this.wordWrapChkBox.AutoSize = true;
+            this.wordWrapChkBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.wordWrapChkBox.Location = new System.Drawing.Point(6, 121);
+            this.wordWrapChkBox.Name = "wordWrapChkBox";
+            this.wordWrapChkBox.Size = new System.Drawing.Size(79, 18);
+            this.wordWrapChkBox.TabIndex = 8;
+            this.wordWrapChkBox.Text = "WordWrap";
+            this.wordWrapChkBox.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -188,27 +198,6 @@ namespace Solara
             this.label1.TabIndex = 3;
             this.label1.Text = "UserName";
             // 
-            // label2
-            // 
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 261);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(208, 33);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "API VERSION 1.0";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // wordWrapChkBox
-            // 
-            this.wordWrapChkBox.AutoSize = true;
-            this.wordWrapChkBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.wordWrapChkBox.Location = new System.Drawing.Point(6, 121);
-            this.wordWrapChkBox.Name = "wordWrapChkBox";
-            this.wordWrapChkBox.Size = new System.Drawing.Size(79, 18);
-            this.wordWrapChkBox.TabIndex = 8;
-            this.wordWrapChkBox.Text = "WordWrap";
-            this.wordWrapChkBox.UseVisualStyleBackColor = true;
-            // 
             // Form5
             // 
             this.AcceptButton = this.button2;
@@ -217,7 +206,6 @@ namespace Solara
             this.BackColor = System.Drawing.Color.Black;
             this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(422, 306);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -250,7 +238,6 @@ namespace Solara
         private System.Windows.Forms.TextBox userNameTxtBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown scriptsUpdIntervalBox;
         private System.Windows.Forms.Label label3;

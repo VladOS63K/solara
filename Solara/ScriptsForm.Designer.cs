@@ -1,6 +1,6 @@
 ﻿namespace Solara
 {
-    partial class Form6
+    partial class ScriptsForm
     {
         /// <summary>
         /// Required designer variable.

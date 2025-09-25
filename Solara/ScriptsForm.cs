@@ -11,15 +11,15 @@ using System.Windows.Forms;
 
 namespace Solara
 {
-    public partial class Form6 : Form
+    public partial class ScriptsForm : Form
     {
-        public Form6(Form1 mainForm)
+        public ScriptsForm(MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
         }
 
-        Form1 mainForm;
+        MainForm mainForm;
 
         private void Form6_Load(object sender, EventArgs e)
         {
@@ -31,20 +31,20 @@ namespace Solara
             int selectedIndex;
             selectedIndex = listBox1.SelectedIndex;
             listBox1.Items.Clear();
-            string[] scripts = Directory.GetFiles("scripts\\", "*.lua");
+            string[] scripts = Directory.GetFiles(Application.StartupPath + "\\scripts\\", "*.lua");
             foreach (string script in scripts)
             {
                 string name = Path.GetFileName(script);
                 listBox1.Items.Add(name);
             }
-            listBox1.SelectedIndex = selectedIndex;
+            if (listBox1.Items.Count != 0) listBox1.SelectedIndex = selectedIndex;
         }
 
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
             if (listBox1.SelectedItem != null)
             {
-                mainForm.OpenFile("scripts\\" + listBox1.SelectedItem);
+                mainForm.OpenFile(Application.StartupPath + "\\scripts\\" + listBox1.SelectedItem);
             }
         }
     }
