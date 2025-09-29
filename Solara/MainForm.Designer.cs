@@ -308,6 +308,7 @@ namespace Solara
             this.textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBox1.DefaultMarkerSize = 8;
             this.textBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.textBox1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.textBox1.ForeColor = System.Drawing.Color.White;
             this.textBox1.IsReplaceMode = false;
             this.textBox1.Language = FastColoredTextBoxNS.Language.Lua;
@@ -348,8 +349,7 @@ namespace Solara
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1080, 614);

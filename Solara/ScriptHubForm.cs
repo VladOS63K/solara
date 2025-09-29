@@ -1,21 +1,28 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VladOSLauncher;
 
 namespace Solara
 {
     public partial class ScriptHubForm : Form
     {
-        public ScriptHubForm()
+        public ScriptHubForm(MainForm mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
         }
+
+        MainForm mainForm;
 
         private void ScriptHubForm_Load(object sender, EventArgs e)
         {
@@ -28,7 +35,7 @@ namespace Solara
             {
                 webView21.CoreWebView2.Settings.IsBuiltInErrorPageEnabled = false;
                 webView21.CoreWebView2.Settings.IsPasswordAutosaveEnabled = false;
-                webView21.CoreWebView2.Settings.AreDevToolsEnabled = false;
+                webView21.CoreWebView2.Settings.AreDevToolsEnabled = true;
                 webView21.CoreWebView2.Settings.IsZoomControlEnabled = false;
                 webView21.CoreWebView2.Settings.IsStatusBarEnabled = false;
                 webView21.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
@@ -42,7 +49,25 @@ namespace Solara
 
         private void webView21_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
         {
-
+            try
+            {
+                Debug.WriteLine("WebView2 message received: " + e.WebMessageAsJson);
+                WebView2Message msg = JsonConvert.DeserializeObject<WebView2Message>(e.WebMessageAsJson);
+                Debug.WriteLine("WebView2 message received: " + msg.Key + " - " + msg.Value);
+                switch (msg.Key)
+                {
+                    case "solara-check":
+                        webView21.CoreWebView2.PostWebMessageAsString("SolaraOk");
+                        break;
+                    case "sendscript":
+                        mainForm.SetScript(Convert.ToString(msg.Value));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error processing WebView2 message: " + ex.ToString());
+            }
         }
     }
 }

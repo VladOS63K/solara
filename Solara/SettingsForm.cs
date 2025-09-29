@@ -25,6 +25,7 @@ namespace Solara
             pasteUserNameChkBox.Checked = Properties.Settings.Default.PasteUserName;
             wordWrapChkBox.Checked = Properties.Settings.Default.WordWrap;
             scriptsUpdIntervalBox.Value = (decimal)Properties.Settings.Default.ScriptsUpdateInterval;
+            watermarkChkBox.Checked = Properties.Settings.Default.ShowWatermark;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -34,6 +35,7 @@ namespace Solara
             Properties.Settings.Default.PasteUserName = pasteUserNameChkBox.Checked;
             Properties.Settings.Default.WordWrap = wordWrapChkBox.Checked;
             Properties.Settings.Default.ScriptsUpdateInterval = (int)scriptsUpdIntervalBox.Value;
+            Properties.Settings.Default.ShowWatermark = watermarkChkBox.Checked;
             Properties.Settings.Default.Save();
             Process.Start(Application.ExecutablePath,"-no-disclaimer");
             Application.Exit();

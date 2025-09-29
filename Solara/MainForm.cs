@@ -52,6 +52,11 @@ namespace Solara
             textBox1.Text = File.ReadAllText(file);
         }
 
+        public void SetScript(string script)
+        {
+            textBox1.Text = script;
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             if (VanityAPI.Api.IsRobloxOpen() && !VanityAPI.Api.IsInjected())
@@ -90,6 +95,7 @@ namespace Solara
 
         private async void Form1_Load(object sender, EventArgs e)
         {
+            if (Properties.Settings.Default.ShowWatermark) new WatermarkForm().Show();
             webView21.EnsureCoreWebView2Async();
             VanityAPI.Api.SetAutoInject(Properties.Settings.Default.AutoInject);
             textBox1.WordWrap = Properties.Settings.Default.WordWrap;
@@ -289,7 +295,7 @@ namespace Solara
         private void webView21_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
         {
             Debug.WriteLine("Received " + e.WebMessageAsJson);
-            new ScriptHubForm().Show();
+            new ScriptHubForm(this).Show();
         }
     }
 }

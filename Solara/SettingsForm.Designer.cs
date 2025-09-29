@@ -43,6 +43,7 @@ namespace Solara
             this.userNameTxtBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.watermarkChkBox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scriptsUpdIntervalBox)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -80,7 +81,7 @@ namespace Solara
             this.autoInjectChkBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.autoInjectChkBox.Location = new System.Drawing.Point(6, 21);
             this.autoInjectChkBox.Name = "autoInjectChkBox";
-            this.autoInjectChkBox.Size = new System.Drawing.Size(93, 18);
+            this.autoInjectChkBox.Size = new System.Drawing.Size(86, 19);
             this.autoInjectChkBox.TabIndex = 2;
             this.autoInjectChkBox.Text = "AutoInject";
             this.toolTip1.SetToolTip(this.autoInjectChkBox, "Auto Inject on ROBLOX start.");
@@ -88,6 +89,7 @@ namespace Solara
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.watermarkChkBox);
             this.groupBox1.Controls.Add(this.wordWrapChkBox);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.scriptsUpdIntervalBox);
@@ -107,7 +109,7 @@ namespace Solara
             this.wordWrapChkBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.wordWrapChkBox.Location = new System.Drawing.Point(6, 121);
             this.wordWrapChkBox.Name = "wordWrapChkBox";
-            this.wordWrapChkBox.Size = new System.Drawing.Size(79, 18);
+            this.wordWrapChkBox.Size = new System.Drawing.Size(89, 19);
             this.wordWrapChkBox.TabIndex = 8;
             this.wordWrapChkBox.Text = "WordWrap";
             this.wordWrapChkBox.UseVisualStyleBackColor = true;
@@ -115,9 +117,9 @@ namespace Solara
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(234, 142);
+            this.label4.Location = new System.Drawing.Point(234, 147);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 14);
+            this.label4.Size = new System.Drawing.Size(28, 15);
             this.label4.TabIndex = 7;
             this.label4.Text = "MS";
             // 
@@ -125,7 +127,7 @@ namespace Solara
             // 
             this.scriptsUpdIntervalBox.BackColor = System.Drawing.Color.Black;
             this.scriptsUpdIntervalBox.ForeColor = System.Drawing.Color.Red;
-            this.scriptsUpdIntervalBox.Location = new System.Drawing.Point(177, 140);
+            this.scriptsUpdIntervalBox.Location = new System.Drawing.Point(177, 145);
             this.scriptsUpdIntervalBox.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -137,7 +139,7 @@ namespace Solara
             0,
             0});
             this.scriptsUpdIntervalBox.Name = "scriptsUpdIntervalBox";
-            this.scriptsUpdIntervalBox.Size = new System.Drawing.Size(51, 22);
+            this.scriptsUpdIntervalBox.Size = new System.Drawing.Size(51, 21);
             this.scriptsUpdIntervalBox.TabIndex = 6;
             this.scriptsUpdIntervalBox.Value = new decimal(new int[] {
             1000,
@@ -148,9 +150,9 @@ namespace Solara
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 142);
+            this.label3.Location = new System.Drawing.Point(3, 147);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 14);
+            this.label3.Size = new System.Drawing.Size(148, 15);
             this.label3.TabIndex = 5;
             this.label3.Text = "ScriptsUpdateInterval:";
             // 
@@ -172,7 +174,7 @@ namespace Solara
             this.pasteUserNameChkBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pasteUserNameChkBox.Location = new System.Drawing.Point(9, 44);
             this.pasteUserNameChkBox.Name = "pasteUserNameChkBox";
-            this.pasteUserNameChkBox.Size = new System.Drawing.Size(233, 18);
+            this.pasteUserNameChkBox.Size = new System.Drawing.Size(232, 19);
             this.pasteUserNameChkBox.TabIndex = 5;
             this.pasteUserNameChkBox.Text = "Paste UserName on Ctrl+Shift+U";
             this.pasteUserNameChkBox.UseVisualStyleBackColor = true;
@@ -182,9 +184,9 @@ namespace Solara
             this.userNameTxtBox.BackColor = System.Drawing.Color.Black;
             this.userNameTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.userNameTxtBox.ForeColor = System.Drawing.Color.Red;
-            this.userNameTxtBox.Location = new System.Drawing.Point(75, 16);
+            this.userNameTxtBox.Location = new System.Drawing.Point(87, 16);
             this.userNameTxtBox.Name = "userNameTxtBox";
-            this.userNameTxtBox.Size = new System.Drawing.Size(302, 22);
+            this.userNameTxtBox.Size = new System.Drawing.Size(290, 21);
             this.userNameTxtBox.TabIndex = 4;
             this.userNameTxtBox.Text = "SOLARA";
             this.toolTip1.SetToolTip(this.userNameTxtBox, "Enter User Name if you using Paste User name.");
@@ -194,14 +196,25 @@ namespace Solara
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 14);
+            this.label1.Size = new System.Drawing.Size(75, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "UserName";
             // 
-            // Form5
+            // watermarkChkBox
+            // 
+            this.watermarkChkBox.AutoSize = true;
+            this.watermarkChkBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.watermarkChkBox.Location = new System.Drawing.Point(6, 169);
+            this.watermarkChkBox.Name = "watermarkChkBox";
+            this.watermarkChkBox.Size = new System.Drawing.Size(131, 19);
+            this.watermarkChkBox.TabIndex = 9;
+            this.watermarkChkBox.Text = "Show Watermark";
+            this.watermarkChkBox.UseVisualStyleBackColor = true;
+            // 
+            // SettingsForm
             // 
             this.AcceptButton = this.button2;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.CancelButton = this.button1;
@@ -209,12 +222,12 @@ namespace Solara
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Font = new System.Drawing.Font("Unispace", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Red;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form5";
+            this.Name = "SettingsForm";
             this.ShowInTaskbar = false;
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.Form5_Load);
@@ -242,5 +255,6 @@ namespace Solara
         private System.Windows.Forms.NumericUpDown scriptsUpdIntervalBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox wordWrapChkBox;
+        private System.Windows.Forms.CheckBox watermarkChkBox;
     }
 }
