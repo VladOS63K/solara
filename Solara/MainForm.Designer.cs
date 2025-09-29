@@ -308,7 +308,6 @@ namespace Solara
             this.textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBox1.DefaultMarkerSize = 8;
             this.textBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.textBox1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.textBox1.ForeColor = System.Drawing.Color.White;
             this.textBox1.IsReplaceMode = false;
             this.textBox1.Language = FastColoredTextBoxNS.Language.Lua;
@@ -326,6 +325,7 @@ namespace Solara
             this.textBox1.TabIndex = 11;
             this.textBox1.Text = "local plr = game.Players.LocalPlayer";
             this.textBox1.Zoom = 100;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // timer1
             // 
