@@ -39,7 +39,7 @@ namespace Solara
                 webView21.CoreWebView2.Settings.IsZoomControlEnabled = false;
                 webView21.CoreWebView2.Settings.IsStatusBarEnabled = false;
                 webView21.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
-                webView21.CoreWebView2.Navigate("http://positive-began.gl.at.ply.gg:12148/SolaraScripthub/");
+                webView21.CoreWebView2.Navigate("https://vlados63k.xyz/SolaraScripthub/");
             }
             else
             {

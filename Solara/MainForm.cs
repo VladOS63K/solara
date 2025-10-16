@@ -184,7 +184,7 @@ namespace Solara
 
         private void aBOUTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new AboutBox1().ShowDialog();
+            new AboutBox().ShowDialog();
         }
 
         private void eXITToolStripMenuItem_Click(object sender, EventArgs e)

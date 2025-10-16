@@ -34,6 +34,7 @@ namespace Solara
             this.button2 = new System.Windows.Forms.Button();
             this.autoInjectChkBox = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.watermarkChkBox = new System.Windows.Forms.CheckBox();
             this.wordWrapChkBox = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.scriptsUpdIntervalBox = new System.Windows.Forms.NumericUpDown();
@@ -43,7 +44,6 @@ namespace Solara
             this.userNameTxtBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.watermarkChkBox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scriptsUpdIntervalBox)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -102,6 +102,17 @@ namespace Solara
             this.groupBox1.Size = new System.Drawing.Size(395, 243);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            // 
+            // watermarkChkBox
+            // 
+            this.watermarkChkBox.AutoSize = true;
+            this.watermarkChkBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.watermarkChkBox.Location = new System.Drawing.Point(6, 169);
+            this.watermarkChkBox.Name = "watermarkChkBox";
+            this.watermarkChkBox.Size = new System.Drawing.Size(131, 19);
+            this.watermarkChkBox.TabIndex = 9;
+            this.watermarkChkBox.Text = "Show Watermark";
+            this.watermarkChkBox.UseVisualStyleBackColor = true;
             // 
             // wordWrapChkBox
             // 
@@ -200,17 +211,6 @@ namespace Solara
             this.label1.TabIndex = 3;
             this.label1.Text = "UserName";
             // 
-            // watermarkChkBox
-            // 
-            this.watermarkChkBox.AutoSize = true;
-            this.watermarkChkBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.watermarkChkBox.Location = new System.Drawing.Point(6, 169);
-            this.watermarkChkBox.Name = "watermarkChkBox";
-            this.watermarkChkBox.Size = new System.Drawing.Size(131, 19);
-            this.watermarkChkBox.TabIndex = 9;
-            this.watermarkChkBox.Text = "Show Watermark";
-            this.watermarkChkBox.UseVisualStyleBackColor = true;
-            // 
             // SettingsForm
             // 
             this.AcceptButton = this.button2;
@@ -229,6 +229,7 @@ namespace Solara
             this.MinimizeBox = false;
             this.Name = "SettingsForm";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.Form5_Load);
             this.groupBox1.ResumeLayout(false);
